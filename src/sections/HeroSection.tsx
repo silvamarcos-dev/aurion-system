@@ -51,7 +51,7 @@ export default function HeroSection() {
           >
             Pare de usar uma IA que apenas responde.
             <br />
-            Use uma IA quue conversa, entende e se adapta a você.
+            Use uma IA que conversa, entende e se adapta a você.
             <br />
             <RotatingText />
           </motion.p>
