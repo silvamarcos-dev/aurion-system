@@ -1,15 +1,20 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import RotatingText from "../components/RotatingText";
 import HeroChatDemo from "../components/HeroChatDemo";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
   return (
     <section
       id="inicio"
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-6"
     >
+      {/* BACKGROUND GRADIENT */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.16),transparent_28%)]" />
 
+      {/* GLOW ANIMATION */}
       <motion.div
         className="absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-3xl"
         animate={{
@@ -24,7 +29,11 @@ export default function HeroSection() {
       />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 py-20 lg:grid-cols-[1fr_1.1fr]">
+        
+        {/* LEFT SIDE */}
         <div className="text-center lg:text-left">
+          
+          {/* BADGE */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -34,6 +43,7 @@ export default function HeroSection() {
             Pré-lançamento aberto
           </motion.div>
 
+          {/* TITLE */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,6 +53,7 @@ export default function HeroSection() {
             Lyra
           </motion.h1>
 
+          {/* DESCRIPTION */}
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,22 +67,30 @@ export default function HeroSection() {
             <RotatingText />
           </motion.p>
 
+          {/* BUTTONS */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3 }}
             className="mt-10 flex flex-col gap-4 sm:flex-row lg:justify-start"
           >
-            <button className="rounded-2xl bg-blue-600 px-8 py-4 font-medium text-white shadow-[0_10px_30px_rgba(37,99,235,0.35)] transition hover:scale-[1.02] hover:bg-blue-500">
+            <button
+              onClick={() => navigate("/pre-release")}
+              className="rounded-2xl bg-blue-600 px-8 py-4 font-medium text-white shadow-[0_10px_30px_rgba(37,99,235,0.35)] transition hover:scale-[1.02] hover:bg-blue-500"
+            >
               Inscreva-se
             </button>
 
-            <button className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-xl transition hover:scale-[1.02] hover:border-white/20 hover:bg-white/10">
+            <button
+              onClick={() => navigate("/demo")}
+              className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-xl transition hover:scale-[1.02] hover:border-white/20 hover:bg-white/10"
+            >
               Ver demo
             </button>
           </motion.div>
         </div>
 
+        {/* RIGHT SIDE (CHAT DEMO) */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
